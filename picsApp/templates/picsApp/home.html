@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home page</title>
+</head>
+<body>
+    <div>
+        <h1>
+            My instagram
+        </h1>
+
+        {% for photo in photos %}
+            <table border="2">
+                <img src="{{ photo.image.url }}" alt="sample">
+            </table>
+
+
+
+
+        {% endfor %}
+        <div>
+{#             <form method="POST" enctype="multipart/form-data">#}
+{#                {% csrf_token %}#}
+{#            {{ forms.as_p }}#}
+{#                <input type="submit" name="submit" value="Submit">#}
+{##}
+{#            </form>#}
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+
+
+        </div>
+
+    </div>
+
+{% block content %}
+{% endblock content %}
+
+
+</body>
+</html>
